@@ -6,7 +6,7 @@ Para la clase de diseño de sistemas en chip
 ## Vocabulario
 
 * **SFR:** Special Function Register. Will allow us to multiplex a pin.
-* **SIM:** ??
+* **SIM:** Configure clock gate register
 * **PORTB:** ??
 
 |  Port acronym  | Full name                    | Description                   |
@@ -15,12 +15,13 @@ Para la clase de diseño de sistemas en chip
 | **GPIO_PSOR:** | Port Set Output Register     | |
 | **GPIO_PCOR:** | Port Clear Output Register   | |
 | **GPIO_PTOR:** | Port Toggle Output Register  | |
-| **GPIO_PDIR:** | Port Data Input Register     | |
+| **GPIO_PDIR:** | Port Data Input Register     | Donde está el valor de entrada |
 | **GPIO_PDDR:** | Port Data Direction Register | Make the pin Input or output              |
 | **PORTx_PCRn** | PortX Pin Control            | Alternate a pin Funcion (Multiplexing), Control Drive Strength, Pull Up/Down resistor  |
 
 
-* **GPIO Control Register:** ``
+* **GPIO Control Register:** 
+
 |  BIT  | Field                      | Description                   |
 | ----- | -------------------------- | ----------------------------- |
 | **0** | Pull Select (PS)           | 0: Pull down ⁝ 1: Pull Up     |
