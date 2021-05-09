@@ -1,0 +1,237 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [.\Objects\HelloAssembly.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image .\Objects\HelloAssembly.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Fri Apr 30 09:56:21 2021
+<BR><P>
+<H3>Maximum Stack Usage =          0 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+
+<P>
+<H3>
+Functions with no stack information
+</H3><UL>
+ <LI><a href="#[2a]">__user_initial_stackheap</a>
+ <LI><a href="#[27]">__main</a>
+ <LI><a href="#[29]">__Temporalmain</a>
+</UL>
+</UL>
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[1]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1]">NMI_Handler</a><BR>
+ <LI><a href="#[2]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[2]">HardFault_Handler</a><BR>
+ <LI><a href="#[3]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3]">SVC_Handler</a><BR>
+ <LI><a href="#[4]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[4]">PendSV_Handler</a><BR>
+ <LI><a href="#[5]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">SysTick_Handler</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[15]">ADC0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[16]">CMP0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1f]">DAC0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[6]">DMA0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[7]">DMA1_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[8]">DMA2_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[9]">DMA3_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[28]">DefaultISR</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(.text)
+ <LI><a href="#[b]">FTFA_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[2]">HardFault_Handler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[e]">I2C0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[f]">I2C1_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[d]">LLWU_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[22]">LPTMR0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[c]">LVD_LVW_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[21]">MCG_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1]">NMI_Handler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1c]">PIT_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[24]">PORTA_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[25]">PORTD_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[4]">PendSV_Handler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1a]">RTC_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1b]">RTC_Seconds_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[a]">Reserved20_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1d]">Reserved39_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[23]">Reserved45_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[0]">Reset_Handler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[10]">SPI0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[11]">SPI1_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[3]">SVC_Handler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[5]">SysTick_Handler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[26]">SystemInit</a> from system_mkl25z4.o(.text.SystemInit) referenced from startup_mkl25z4.o(.text)
+ <LI><a href="#[17]">TPM0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[18]">TPM1_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[19]">TPM2_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[20]">TSI0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[12]">UART0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[13]">UART1_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[14]">UART2_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[1e]">USB0_IRQHandler</a> from startup_mkl25z4.o(.text) referenced from startup_mkl25z4.o(RESET)
+ <LI><a href="#[27]">__main</a> from led.o(led_prg) referenced from startup_mkl25z4.o(.text)
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[3]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[4]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[5]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[15]"></a>ADC0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[16]"></a>CMP0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1f]"></a>DAC0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[6]"></a>DMA0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[7]"></a>DMA1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[8]"></a>DMA2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[9]"></a>DMA3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[28]"></a>DefaultISR</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(.text)
+</UL>
+<P><STRONG><a name="[b]"></a>FTFA_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[e]"></a>I2C0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[f]"></a>I2C1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[d]"></a>LLWU_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[22]"></a>LPTMR0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[c]"></a>LVD_LVW_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[21]"></a>MCG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1c]"></a>PIT_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[24]"></a>PORTA_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[25]"></a>PORTD_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1a]"></a>RTC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1b]"></a>RTC_Seconds_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[a]"></a>Reserved20_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1d]"></a>Reserved39_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[23]"></a>Reserved45_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[10]"></a>SPI0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[11]"></a>SPI1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[17]"></a>TPM0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[18]"></a>TPM1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[19]"></a>TPM2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[20]"></a>TSI0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[12]"></a>UART0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[13]"></a>UART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[14]"></a>UART2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[1e]"></a>USB0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mkl25z4.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(RESET)
+</UL>
+<P><STRONG><a name="[2a]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup_mkl25z4.o(.text), UNUSED)
+
+<P><STRONG><a name="[2b]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[2c]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[2d]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[26]"></a>SystemInit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, system_mkl25z4.o(.text.SystemInit))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(.text)
+</UL>
+<P><STRONG><a name="[27]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, led.o(led_prg))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(.text)
+</UL>
+<P><STRONG><a name="[29]"></a>__Temporalmain</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, helloworld.o(prg_1))
+<P>
+<H3>
+Local Symbols
+</H3><P>
+<H3>
+Undefined Global Symbols
+</H3><HR></body></html>

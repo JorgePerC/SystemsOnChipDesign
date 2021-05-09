@@ -5,16 +5,16 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.34.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Jorge Pérez, Tec de Monterrey, LIC=----
+License Information: Jorge Pérez, Tec de Monterrey, LIC=P6FWE-PTLTG-MRUG2-SJVZV-T85HB-IUFEK
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.34.0.0
-Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.16
-Assembler:       Armasm.exe V6.16
-Linker/Locator:  ArmLink.exe V6.16
-Library Manager: ArmAr.exe V6.16
-Hex Converter:   FromElf.exe V6.16
+Toolchain:       MDK-ARM Professional  Version: 5.34.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.34.0.0
 Dialog DLL:      DARMCM1.DLL V1.19.4.0
 Target DLL:      PEMicro\Pemicro_ArmCortexInterface.dll V1.3.0.0
@@ -22,24 +22,18 @@ Dialog DLL:      TARMCM1.DLL V1.14.3.0
  
 <h2>Project:</h2>
 C:\Users\jorge\OneDrive\Documentos\MyCode2.0\ClassRepos\SystemsOnChipDesign\LEDBlink\LEDBlink.uvprojx
-Project File Date:  04/12/2021
+Project File Date:  04/22/2021
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild target 'Target 1'
-BasicBlink.c(5): warning: no previous prototype for function 'delay' [-Wmissing-prototypes]
-void delay(int n) {
-     ^
-BasicBlink.c(5): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void delay(int n) {
-^
-static 
-1 warning generated.
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target 1'
 compiling BasicBlink.c...
-compiling system_MKL25Z4.c...
-assembling startup_MKL25Z4.s...
+BasicBlink.c(44): warning:  #1-D: last line of file ends without a newline
+  }
+BasicBlink.c: 1 warning, 0 errors
 linking...
-Program Size: Code=384 RO-data=656 RW-data=0 ZI-data=352  
+Program Size: Code=404 RO-data=636 RW-data=0 ZI-data=352  
+FromELF: creating hex file...
 ".\Objects\LEDBlink.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -67,9 +61,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\ARM\startup_MKL25Z4.s
       Source file:   Device\Source\system_MKL25Z4.c
+      Include file:  Device\Source\system_MKL25Z4.h
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

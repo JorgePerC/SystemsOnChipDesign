@@ -99,6 +99,7 @@ void LCD_init(void)	{
 	
 	/* set 8-bit data, 2-line, 5x7 font */
 	LCD_command(0x38);
+	
 	/* move cursor right */
 	LCD_command(0x06); 
 	/* clear screen, move cursor to home */
