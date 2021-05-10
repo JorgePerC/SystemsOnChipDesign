@@ -23,6 +23,7 @@ Has a single register for control and status.
 |Control        |Timer enable   | 0  | Enables source signal from clock  |
 
 Other important registers:
+
 | Name              | What it's for         | Notes|
 |-------------------|-----------------------|------|
 |**SysTick_LOAD** (STRELOAD)  |Value to count down.   | Not all digits are used in saving the number. |
@@ -44,7 +45,9 @@ So... if we want a delay of n time we would do:
 There are several timer modules on ARM boards, these are called `TPM0, TPM1, TPM2`. These modules have their own memory addresses 
 
 ### TMP# registers:
+
 TPMSRC bits and the PLLFLLSEL bit of SIM_SOPT2 register in System Integration Module.
+
 | Name              | What it's for         | Notes|
 |-------------------|-----------------------|------|
 | TPMSRC            | Select Clock source   | You can choose between MCGFLLCLK, MCGPLLCLK/2, OSCERCLK and MCGIRCLK, each clock has a different freq|
@@ -67,6 +70,8 @@ This must be done in addition to allowing clock to the TPMx module using the SIM
 
 ## Output Compare
 
+Each Timer has several Output compare channes, This allows you to raise an interrupt on different stages in the clock cycle without resetting _count_.
+
 ## Applications
 
 * Counting events
@@ -74,13 +79,12 @@ This must be done in addition to allowing clock to the TPMx module using the SIM
 * Measure time 
     * Schedule tasks
 
-## Edge Time Capturing
-
+On our project timers will be key to produce PWM signals, wich will control some of our peripherals. 
 
 ## Prescaler or Clock Divider
 
 A [prescaler](https://www.youtube.com/watch?v=wOeRTo55BCE) allows yout to get a rising edge every $`2^n`$ from the original input signal, essentially making lower frequency clocks.
 
-Investigue un poco sobre cómo conectar la placa a los componentes externos. Puede utilizar un programa virtual para esquematizar la conexión entre la placa y el externo. Un ejemplo es Fritzing, pero hay otros
- 
 Incluya algunas investigaciones sobre posibles aplicaciones y temporizadores en una aplicación (especialmente en su proyecto final).
+
+TODO: Edge Time Capturing
