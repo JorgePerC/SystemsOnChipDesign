@@ -72,6 +72,12 @@ This must be done in addition to allowing clock to the TPMx module using the SIM
 
 Each Timer has several Output compare channes, This allows you to raise an interrupt on different stages in the clock cycle without resetting _count_.
 
+### Polling vs Interruptions:
+
+Polling is a practice where you have to go to the register and read it each time to see if the timer has compleated it's count. 
+
+Later on we'll see how to do it with interruptions.
+
 ## Applications
 
 * Counting events

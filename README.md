@@ -39,3 +39,28 @@ Para la clase de diseño de sistemas en chip
 | **2** | Slew Rate Enable (SRE)     | 0: Fast ⁝ 1: Slow, Slew Rate         |
 | **4** | Passive Filter Enable (PFE)| 0: Disable ⁝ 1: Enable, input filter |
 | **6** | Drive Strength Enable (DSE)| 0: Low ⁝ 1: High, drive strength|
+
+
+## Basic Steps:
+
+1. Enable clock to the port *SIM_SCGC#* your pin is at.
+    * Check the registers if you want to implement an special pin (this will may require the use of extra registers)
+1. Configure and control based on the ports showned before.
+    1. `PORTD->PCR[0] = 0x100` sets pin as GPIO.
+    1. Verify you are setting the right letter, in this case `D`, for the port
+    
+Note that on C, there is no need to indicate namespace
+
+People use unsigned char to pass addresses because it has the size of a byte
+
+Instead of using simply structs, we define as typedef struct {something} myVariable;
+    With that implementation, there are no such thing as methods for structures. What you need to do is create a normal function, and pass as an argument your structure, and inside it make whatever you want/need
+    myVariable_setSomething(myVariable * mv, something s){}
+
+myVariable *arrayLike = malloc(10*sizeof(myVariable));
+
+https://www.allaboutcircuits.com/technical-articles/understanding-embedded-C-what-are-structures/
+https://www.youtube.com/watch?v=cNv4SA87y5c
+
+
+

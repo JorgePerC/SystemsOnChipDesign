@@ -153,7 +153,10 @@ void act3 (void) {
 	*/
 	while (1) {
 		while((TPM0->SC & 0x80) == 0) {}
-		/* wait until the TOF is set */
+		/* wait until the TOF is set 
+			This is done trough polling, which is not the best since we have to
+			go to the register and read it each time. Later on we'll see how to
+			do it with interruptions*/
 		TPM0->SC |= TPM_STATUS_TOF_MASK; /* clear TOF */
 		toggle_Blue_LED();
 	}
