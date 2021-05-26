@@ -1,51 +1,27 @@
-/*
- *******************************************************************************
- *                              Los separatistas                               *
- *																																						 *
- * File to configure I2C communication protocol on the Freedom Development 		 *
- * board FRCM-KL25Z.																													 *
- * Created: 14/05/2021																												 *
- *******************************************************************************
-*/
 
-#include <MKL25Z4.h>
+#ifndef I2C_H_
+#define I2C_H_
+#include "derivative.h"
+#include "types.h"
 
-/*
- *******************************************************************************
- *                              Register Symbols                               *
- *******************************************************************************
-*/
+void i2c_set_tx_mode(I2C_MemMapPtr p);
+void i2c_set_rx_mode(I2C_MemMapPtr p);
+void i2c_set_slave_mode(I2C_MemMapPtr p);
+void i2c_set_master_mode(I2C_MemMapPtr p);
+void i2c_give_nack(I2C_MemMapPtr p);
+void i2c_give_ack(I2C_MemMapPtr p);
+void i2c_repeated_start(I2C_MemMapPtr p);
+void i2c_write_byte(I2C_MemMapPtr p, uint8_t data);
+uint8_t i2c_read_byte(I2C_MemMapPtr p);
+void i2c_start(I2C_MemMapPtr p);
+void i2c_stop(I2C_MemMapPtr p);
+void i2c_wait(I2C_MemMapPtr p);
+uint16_t i2c_get_ack(I2C_MemMapPtr p);
+void hal_i2c0_init(I2C_MemMapPtr p);
+void hal_i2c1_init(I2C_MemMapPtr p);
+void hal_i2c0_deinit(I2C_MemMapPtr p);
+void hal_i2c1_deinit(I2C_MemMapPtr p);
+#define I2C_READ  1
+#define I2C_WRITE 0
 
-
-#define I2Cmask 0x20
-
-/*
- *******************************************************************************
- *                              Type Definitions                               *
- *******************************************************************************
-*/
-
-/* Create an "object" 
-	Take the following into account when declaring variables: 
-	https://www.allaboutcircuits.com/technical-articles/understanding-memory-structures-in-embedded-c-language/
-*/
-typedef struct {
-	unsigned char l;
-	
-} I2C_interface;
-
-
-
-/*
- *******************************************************************************
- *                        General Function Declarations                        *
- *******************************************************************************
-*/
-
-
-void init_I2C(void);
-
-void send_data_I2C (void);
-
-void recieve_data_I2C (void);
-
+#endif /* I2C_H_ */

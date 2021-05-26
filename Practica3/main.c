@@ -8,6 +8,8 @@ Los separatistas
 #include "LCD_Display.h"
 #include "LCD_Display.c"
 
+#include "i2c.h"
+#include "i2c.c"
 
 #define R_LED 0x40000
 #define G_LED 0x80000
@@ -43,7 +45,8 @@ int mainKeypad(void);
 
 
 int main (void){
-	act1();
+	
+	//act1();
 }
 
 
@@ -94,7 +97,7 @@ depending on which key was pressed (1: Red, 2: Blue, 3: Green) and display
 The led should remain on for a few seconds, then go off and display the initial menu again.
 */
 
-	LCD_init();
+	LCD_init(DCommd_8bits);
 	LCD_command(0xF);
 	displayMenu();
 

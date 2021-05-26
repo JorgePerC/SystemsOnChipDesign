@@ -36,6 +36,7 @@ void LCD_init(unsigned char bitSelection)	{
 	for (int i = 0; i < limit; i++){
 	
 		PORTD->PCR[7-i] = 0x100; /* make PTD# pin as GPIO */
+		// Deshabilitar interrupciones
 		
 	}
 	

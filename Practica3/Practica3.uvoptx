@@ -194,8 +194,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\I2C.c</PathWithFileName>
-      <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
+      <PathWithFileName>.\LCD_Display.c</PathWithFileName>
+      <FilenameWithoutPath>LCD_Display.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -206,8 +206,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\I2C.h</PathWithFileName>
-      <FilenameWithoutPath>I2C.h</FilenameWithoutPath>
+      <PathWithFileName>.\LCD_Display.h</PathWithFileName>
+      <FilenameWithoutPath>LCD_Display.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -218,8 +218,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\LCD_Display.c</PathWithFileName>
-      <FilenameWithoutPath>LCD_Display.c</FilenameWithoutPath>
+      <PathWithFileName>.\i2c.c</PathWithFileName>
+      <FilenameWithoutPath>i2c.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -230,8 +230,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\LCD_Display.h</PathWithFileName>
-      <FilenameWithoutPath>LCD_Display.h</FilenameWithoutPath>
+      <PathWithFileName>.\i2c.h</PathWithFileName>
+      <FilenameWithoutPath>i2c.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
