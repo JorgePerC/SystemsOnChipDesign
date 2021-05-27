@@ -94,7 +94,7 @@ depending on which key was pressed (1: Red, 2: Blue, 3: Green) and display
 The led should remain on for a few seconds, then go off and display the initial menu again.
 */
 
-	LCD_init();
+	LCD_init(DCommd_8bits);
 	LCD_command(0xF);
 	displayMenu();
 
