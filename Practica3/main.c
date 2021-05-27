@@ -6,8 +6,9 @@ Los separatistas
 
 #include <MKL25Z4.h>
 #include "LCD_Display.h"
-#include "LCD_Display.c"
+//#include "LCD_Display.c"
 
+#include "I2C.h"
 
 #define R_LED 0x40000
 #define G_LED 0x80000
@@ -40,10 +41,39 @@ void sendWord(char *word);
 int mainLCD(void);
 int mainKeypad(void);
 
+static void pause(void)
+{
+    int n;
+    for(n=0; n<40; n++){}
+}
 
+void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
+    i2c_start(I2C0_B);
+
+    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
+	
+    i2c_wait(I2C0_B);
+    i2c_get_ack(I2C0_B);
+
+    i2c_write_byte(I2C0_B, addr);
+    i2c_wait(I2C0_B);
+    i2c_get_ack(I2C0_B);
+
+    i2c_write_byte(I2C0_B, data);
+    i2c_wait(I2C0_B);
+    i2c_get_ack(I2C0_B);
+
+    i2c_stop(I2C0_B);
+    pause();
+}
+
+// MAIN----------
 
 int main (void){
-	act1();
+	hal_i2c0_init(I2C0_B);
+	
+	hal_dev_lcd_write_reg
+	//act1();
 }
 
 

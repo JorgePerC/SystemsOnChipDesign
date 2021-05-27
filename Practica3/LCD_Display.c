@@ -1,26 +1,6 @@
 
 #include "LCD_Display.h"
 
-
-#define RS 0x04 /* PTA2 mask */
-#define RW 0x10 /* PTA4 mask */
-#define EN 0x20 /* PTA5 mask */
-
-#define BF 0xff			/*LCD Busy mask TODO: check */
-
-// Display Commands
-
-#define DCommd_ClearDisplay			0x01
-#define DCommd_CursorHome				0x02
-#define DCommd_IncrementCursor	0x06
-#define DCommd_CursorBlink			0x0F
-#define DCommd_CursorFirstLine	0x80
-#define DCommd_CursorSecondLine	0xC0
-#define DCommd_8bits						0x38
-#define DCommd_4bits						0x28
-
-
-
 void LCD_init(unsigned char bitSelection)	{
 	int limit;
 	
@@ -36,6 +16,7 @@ void LCD_init(unsigned char bitSelection)	{
 	for (int i = 0; i < limit; i++){
 	
 		PORTD->PCR[7-i] = 0x100; /* make PTD# pin as GPIO */
+		// Deshabilitar interrupciones
 		
 	}
 	

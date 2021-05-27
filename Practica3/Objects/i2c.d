@@ -7,4 +7,4 @@
   C:\Users\jorge\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
-  RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h
+  RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h types.h

@@ -62,5 +62,6 @@ myVariable *arrayLike = malloc(10*sizeof(myVariable));
 https://www.allaboutcircuits.com/technical-articles/understanding-embedded-C-what-are-structures/
 https://www.youtube.com/watch?v=cNv4SA87y5c
 
-
+## Git config:
+Add Project.uvguix.user to git ignore, as well as .dep, build_log, and system.o
 

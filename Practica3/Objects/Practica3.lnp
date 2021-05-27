@@ -1,5 +1,7 @@
 --cpu Cortex-M0+
 ".\objects\main.o"
+".\objects\lcd_display.o"
+".\objects\i2c.o"
 ".\objects\startup_mkl25z4.o"
 ".\objects\system_mkl25z4.o"
 --strict --scatter ".\Objects\Practica3.sct"

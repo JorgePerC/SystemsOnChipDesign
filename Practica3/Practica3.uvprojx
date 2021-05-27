@@ -389,16 +389,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>I2C.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\I2C.c</FilePath>
-            </File>
-            <File>
-              <FileName>I2C.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\I2C.h</FilePath>
-            </File>
-            <File>
               <FileName>LCD_Display.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\LCD_Display.c</FilePath>
@@ -407,6 +397,16 @@
               <FileName>LCD_Display.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\LCD_Display.h</FilePath>
+            </File>
+            <File>
+              <FileName>I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\I2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>I2C.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\I2C.h</FilePath>
             </File>
           </Files>
         </Group>

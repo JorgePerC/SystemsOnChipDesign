@@ -70,3 +70,7 @@ Before sending data you must read ARBL && BUSY
 
 
 ## Configuring LCD
+
+The three hardware address pins A0, A1 and A2 allow eight devices to be on the same I2C-bus. You can change the address of the device according to the status of each of these pins. The default address of the device is 0X3F (with PCF8574AT)
+
+https://www.rhydolabz.com/wiki/?p=16424

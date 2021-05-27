@@ -22,53 +22,520 @@ Dialog DLL:      TARMCM1.DLL V1.14.3.0
  
 <h2>Project:</h2>
 C:\Users\jorge\Documents\SystemsOnChipDesign\Practica3\Practica3.uvprojx
-Project File Date:  05/24/2021
+Project File Date:  05/26/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
-I2C.c(31): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-1 warning generated.
+Rebuild target 'Target 1'
+I2C.c(3): warning: In file included from...
+./I2C.h(5): warning: In file included from...
+./types.h(10): error: typedef redefinition with different types ('unsigned long' vs 'unsigned int')
+typedef unsigned long       uint32_t; /* 32 bits */
+                            ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h(64): note: previous definition is here
+typedef unsigned           int uint32_t;
+                               ^
+I2C.c(3): warning: In file included from...
+./I2C.h(5): warning: In file included from...
+./types.h(14): error: typedef redefinition with different types ('long' vs 'int')
+typedef signed long                 int32_t;  /* 32 bits */
+                                    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h(58): note: previous definition is here
+typedef   signed           int int32_t;
+                               ^
+2 errors generated.
 compiling I2C.c...
-main.c(8): warning: In file included from...
-./LCD_Display.h(56): warning: no newline at end of file [-Wnewline-eof]
-void waitUntilFinished(void);
-                             ^
-main.c(9): warning: In file included from...
-./LCD_Display.c(2): warning: In file included from...
-./LCD_Display.h(56): warning: no newline at end of file [-Wnewline-eof]
-void waitUntilFinished(void);
-                             ^
-main.c(97): error: too few arguments to function call, single argument 'bitSelection' was not specified
-        LCD_init();
-        ~~~~~~~~ ^
-./LCD_Display.c(24): note: 'LCD_init' declared here
-void LCD_init(unsigned char bitSelection)       {
-     ^
-main.c(268): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
-                return row * 4 + 1; /* key in column 0 */
-                ~~~~~~ ~~~~~~~~^~~
-main.c(270): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
-                return row * 4 + 2; /* key in column 1 */
-                ~~~~~~ ~~~~~~~~^~~
-main.c(272): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
-                return row * 4 + 3; /* key in column 2 */
-                ~~~~~~ ~~~~~~~~^~~
-main.c(274): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
-                return row * 4 + 4; /* key in column 3 */
-                ~~~~~~ ~~~~~~~~^~~
-6 warnings and 1 error generated.
-compiling main.c...
 compiling system_MKL25Z4.c...
-LCD_Display.c(2): warning: In file included from...
-./LCD_Display.h(56): warning: no newline at end of file [-Wnewline-eof]
-void waitUntilFinished(void);
-                             ^
-1 warning generated.
 compiling LCD_Display.c...
-".\Objects\Practica3.axf" - 1 Error(s), 8 Warning(s).
+main.c(11): warning: In file included from...
+./I2C.h(5): warning: In file included from...
+./types.h(10): error: typedef redefinition with different types ('unsigned long' vs 'unsigned int')
+typedef unsigned long       uint32_t; /* 32 bits */
+                            ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h(64): note: previous definition is here
+typedef unsigned           int uint32_t;
+                               ^
+main.c(11): warning: In file included from...
+./I2C.h(5): warning: In file included from...
+./types.h(14): error: typedef redefinition with different types ('long' vs 'int')
+typedef signed long                 int32_t;  /* 32 bits */
+                                    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h(58): note: previous definition is here
+typedef   signed           int int32_t;
+                               ^
+main.c(53): error: expected ')'
+    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
+                                                     ^
+./I2C.h(28): note: expanded from macro 'I2C_WRITE'
+#define I2C_WRITE 0}
+                   ^
+main.c(53): note: to match this '('
+    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
+                  ^
+main.c(50): warning: unused parameter 'addr' [-Wunused-parameter]
+void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
+                                   ^
+main.c(50): warning: unused parameter 'data' [-Wunused-parameter]
+void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
+                                                 ^
+main.c(50): warning: no previous prototype for function 'hal_dev_lcd_write_reg' [-Wmissing-prototypes]
+void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
+     ^
+main.c(50): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
+^
+static 
+main.c(53): error: expected identifier or '('
+    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
+                                                              ^
+main.c(55): error: expected parameter declarator
+    i2c_wait(I2C0_B);
+             ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(55): error: expected ')'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(55): note: to match this '('
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(55): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_wait(I2C0_B);
+             ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                   ^
+main.c(55): warning: redundant parentheses surrounding declarator [-Wredundant-parens]
+    i2c_wait(I2C0_B);
+             ^~~~~~
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^~~~~~~~~~~~~
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                 ^~~~~~
+main.c(55): error: function cannot return function type 'int ((()))'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                  ^
+main.c(55): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(55): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_wait(I2C0_B);
+    ^
+main.c(56): error: expected parameter declarator
+    i2c_get_ack(I2C0_B);
+                ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(56): error: expected ')'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(56): note: to match this '('
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(56): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_get_ack(I2C0_B);
+                ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                   ^
+main.c(56): warning: redundant parentheses surrounding declarator [-Wredundant-parens]
+    i2c_get_ack(I2C0_B);
+                ^~~~~~
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^~~~~~~~~~~~~
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                 ^~~~~~
+main.c(56): error: function cannot return function type 'int ((()))'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                  ^
+main.c(56): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(56): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_get_ack(I2C0_B);
+    ^
+main.c(58): error: expected parameter declarator
+    i2c_write_byte(I2C0_B, addr);
+                   ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(58): error: expected ')'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(58): note: to match this '('
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(58): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_write_byte(I2C0_B, addr);
+                   ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                   ^
+main.c(58): warning: redundant parentheses surrounding declarator [-Wredundant-parens]
+    i2c_write_byte(I2C0_B, addr);
+                   ^~~~~~
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^~~~~~~~~~~~~
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                 ^~~~~~
+main.c(58): error: function cannot return function type 'int ((()))'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                  ^
+main.c(58): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(58): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_write_byte(I2C0_B, addr);
+                           ^
+main.c(58): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_write_byte(I2C0_B, addr);
+    ^
+main.c(59): error: expected parameter declarator
+    i2c_wait(I2C0_B);
+             ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(59): error: expected ')'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(59): note: to match this '('
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(59): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_wait(I2C0_B);
+             ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                   ^
+main.c(59): warning: redundant parentheses surrounding declarator [-Wredundant-parens]
+    i2c_wait(I2C0_B);
+             ^~~~~~
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^~~~~~~~~~~~~
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                 ^~~~~~
+main.c(59): error: function cannot return function type 'int ((()))'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                  ^
+main.c(59): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(59): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_wait(I2C0_B);
+    ^
+main.c(60): error: expected parameter declarator
+    i2c_get_ack(I2C0_B);
+                ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(60): error: expected ')'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                  ^
+main.c(60): note: to match this '('
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(60): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_get_ack(I2C0_B);
+                ^
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                   ^
+main.c(60): warning: redundant parentheses surrounding declarator [-Wredundant-parens]
+    i2c_get_ack(I2C0_B);
+                ^~~~~~
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^~~~~~~~~~~~~
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                 ^~~~~~
+main.c(60): error: function cannot return function type 'int ((()))'
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                  ^
+main.c(60): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./I2C.h(29): note: expanded from macro 'I2C0_B'
+#define I2C0_B  I2C0_BASE_PTR
+                ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2209): note: expanded from macro 'I2C0_BASE_PTR'
+#define I2C0_BASE_PTR                            (I2C0)
+                                                  ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2208): note: expanded from macro 'I2C0'
+#define I2C0                                     ((I2C_Type *)I2C0_BASE)
+                                                              ^
+C:/Users/jorge/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include\MKL25Z4.h(2206): note: expanded from macro 'I2C0_BASE'
+#define I2C0_BASE                                (0x40066000u)
+                                                 ^
+main.c(60): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    i2c_get_ack(I2C0_B);
+    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+24 warnings and 20 errors generated.
+compiling main.c...
+assembling startup_MKL25Z4.s...
+".\Objects\Practica3.axf" - 21 Error(s), 24 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -104,8 +571,8 @@ Package Vendor: Keil
       Include file:  CMSIS\Driver\Include\Driver_SPI.h
 
    * Component: ARM::CMSIS Driver:I2C:Custom:1.0.0
-      Include file:  CMSIS\Driver\Include\Driver_I2C.h
       Source file:   CMSIS\Driver\DriverTemplates\Driver_I2C.c
+      Include file:  CMSIS\Driver\Include\Driver_I2C.h
 
    * Component: ARM::CMSIS Driver:SPI:Custom:1.0.0
       Source file:   CMSIS\Driver\DriverTemplates\Driver_SPI.c
@@ -115,8 +582,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.5.0
       Source file:   Device\Source\ARM\startup_MKL25Z4.s
-      Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\system_MKL25Z4.c
+      Include file:  Device\Source\system_MKL25Z4.h
 Target not created.
 Build Time Elapsed:  00:00:02
 </pre>
