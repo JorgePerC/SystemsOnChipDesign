@@ -27,14 +27,28 @@ Project File Date:  05/28/2021
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-main.c(100): warning: function 'displayMenu' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-void displayMenu(void){
-                      ^
-1 warning generated.
+main.c(11): warning: In file included from...
+./LEDs.h(37): warning: no newline at end of file [-Wnewline-eof]
+void turn_off_all_LEDs(void);
+                             ^
+main.c(86): warning: function 'act1' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+void act1(void){
+               ^
+main.c(186): warning: function 'act2' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+void act2(void){
+               ^
+main.c(240): warning: result of comparison of unsigned expression < 0 is always false [-Wtautological-unsigned-zero-compare]
+        for(i = total_countdown - 1 ; i < 0 ; i ++){
+                                      ~ ^ ~
+main.c(246): warning: implicitly declaring library function 'sprintf' with type 'int (char *, const char *, ...)' [-Wimplicit-function-declaration]
+                sprintf(word, "%d", i);
+                ^
+main.c(246): note: include the header <stdio.h> or explicitly provide a declaration for 'sprintf'
+5 warnings generated.
 compiling main.c...
 linking...
 Program Size: Code=724 RO-data=316 RW-data=0 ZI-data=352  
-".\Objects\Practica3.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\Practica3.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -74,8 +88,8 @@ Package Vendor: Keil
       Source file:   CMSIS\Driver\DriverTemplates\Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:SPI:Custom:1.0.0
-      Source file:   CMSIS\Driver\DriverTemplates\Driver_SPI.c
       Include file:  CMSIS\Driver\Include\Driver_SPI.h
+      Source file:   CMSIS\Driver\DriverTemplates\Driver_SPI.c
 
    * Component: ARM::CMSIS:CORE:5.4.0
 

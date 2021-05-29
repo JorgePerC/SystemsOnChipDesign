@@ -398,6 +398,36 @@
               <FileType>5</FileType>
               <FilePath>.\tpm.h</FilePath>
             </File>
+            <File>
+              <FileName>Keypad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Keypad.c</FilePath>
+            </File>
+            <File>
+              <FileName>Keypad.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Keypad.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_Display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD_Display.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_Display.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LCD_Display.h</FilePath>
+            </File>
+            <File>
+              <FileName>LEDs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LEDs.c</FilePath>
+            </File>
+            <File>
+              <FileName>LEDs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LEDs.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

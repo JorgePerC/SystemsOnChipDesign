@@ -15,7 +15,7 @@
 void set_pos(int angle);
 
 int main (void){
-	SIM->SCGC5 |= 0x400; /* enable clock to Port B */
+	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK; /* enable clock to Port B */
 	PORTB_PCR0 = PORT_PCR_MUX(3);
 	TPM_init_PWM(TPM1_BASE_PTR, TPM_PLLFLL, TPM_MODULE, TPM_CLK, PS_128, EDGE_PWM);
 	TPM_CH_init(TPM1_BASE_PTR, 0, TPM_PWM_H);
