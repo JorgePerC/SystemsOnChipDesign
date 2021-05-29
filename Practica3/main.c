@@ -6,30 +6,11 @@ Los separatistas
 
 #include <MKL25Z4.h>
 #include "LCD_Display.h"
-//#include "LCD_Display.c"
-
+#include "Keypad.h"
 #include "I2C.h"
-
-#define R_LED 0x40000
-#define G_LED 0x80000
-#define B_LED 0x02
-
-
-void toggle_LED (uint32_t desired);
-void toggle_Blue_LED (void);
 
 void delay1ms(void);
 void delayMs(int n);
-
-void init_RED_LED (void);
-void init_BLUE_LED (void);
-void init_GREEN_LED (void);
-
-
-
-void keypad_init(void);
-char keypad_getkey(void);
-void LED_set(int value);
 
 void act1(void);
 void act2(void);
@@ -38,42 +19,28 @@ void displayMenu(void);
 void displayFeedback(void);
 void sendWord(char *word);
 
+
 int mainLCD(void);
 int mainKeypad(void);
 
-static void pause(void)
-{
-    int n;
-    for(n=0; n<40; n++){}
-}
 
-void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
-    i2c_start(I2C0_B);
-
-    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
-	
-    i2c_wait(I2C0_B);
-    i2c_get_ack(I2C0_B);
-
-    i2c_write_byte(I2C0_B, addr);
-    i2c_wait(I2C0_B);
-    i2c_get_ack(I2C0_B);
-
-    i2c_write_byte(I2C0_B, data);
-    i2c_wait(I2C0_B);
-    i2c_get_ack(I2C0_B);
-
-    i2c_stop(I2C0_B);
-    pause();
-}
 
 // MAIN----------
 
 int main (void){
-	hal_i2c0_init(I2C0_B);
+	LCD_init(DCommd_8bits);
+	LCD_command(0xF);
 	
-	hal_dev_lcd_write_reg
-	//act1();
+	LCD_command(1); 	// clear display
+		delayMs(500);
+		LCD_command(0x80); 	// set cursor at first line
+		
+		LCD_data('P'); 		// write the word
+		LCD_data('B');
+		// write the word
+		char message[] = "PRESS BUTTON";
+		sendWord(message);
+
 }
 
 
@@ -102,14 +69,13 @@ int mainLCD(void){
 
 
 int mainKeypad(void){
-	unsigned char key;
+	unsigned int key;
 
 	keypad_init();
 	//LED_init();
 
 	while(1){
 		key = keypad_getkey();
-		LED_set(key); /* set LEDs according to the key code */
 	}
 }
 
@@ -233,125 +199,8 @@ Once the timer has elapsed, you can use a buzzer (if you have it) or a led to ma
 
 
 
-/* Initializes PortC that is connected to the keypad.
- Pins as GPIO input pin with pullup enabled.*/
-void keypad_init(void){
-	SIM->SCGC5 |= 0x0800;  /* enable clock to Port C */
-	PORTC->PCR[0] = 0x103; /* PTC0, GPIO, enable pullup*/
-	PORTC->PCR[1] = 0x103; /* PTC1, GPIO, enable pullup*/
-	PORTC->PCR[2] = 0x103; /* PTC2, GPIO, enable pullup*/
-	PORTC->PCR[3] = 0x103; /* PTC3, GPIO, enable pullup*/
-	PORTC->PCR[4] = 0x103; /* PTC4, GPIO, enable pullup*/
-	PORTC->PCR[5] = 0x103; /* PTC5, GPIO, enable pullup*/
-	PORTC->PCR[6] = 0x103; /* PTC6, GPIO, enable pullup*/
-	PORTC->PCR[7] = 0x103; /* PTC7, GPIO, enable pullup*/
-	PTD->PDDR = 0x0F; /* make PTC7-0 as input pins */
-}
-
-/* keypad_getkey()
-* If a key is pressed, it returns a key code. Otherwise, a zero is returned.
-The upper nibble of Port C is used as input. Pull-ups are enabled when the keys are not pressed
-* The lower nibble of Port C is used as output that drives the keypad rows.
-* First all rows are driven low and the input pins are read. If no key is pressed, it will read as all ones. Otherwise, some key is pressed. 
-* If any key is pressed, the program drives one row low at a time and leave the rest of the rows inactive (float) then read the input pins.
-* Knowing which row is active and which column is active, the program can decide which key is pressed. */
-
-char keypad_getkey(void) {
-
-	int row, col;
-	const char row_select[] = {0x01, 0x02, 0x04, 0x08}; 
-	/* one row is active */
-	/* check to see any key pressed */
-
-	PTC->PDDR |= 0x0F; /* enable all rows */
-	PTC->PCOR = 0x0F;
-	//delayUs(2); /* wait for signal return */
-	col = PTC-> PDIR & 0xF0; /* read all columns */
-	PTC->PDDR = 0; /* disable all rows */
-	if (col == 0xF0)
-		return 0; /* no key pressed */
 
 
-	/* If a key is pressed, we need find out which key.*/ 
-	for (row = 0; row < 4; row++){ 
-		PTC->PDDR = 0; /* disable all rows */
-
-		PTC->PDDR |= row_select[row]; /* enable one row */
-		PTC->PCOR = row_select[row]; /* drive active row low*/
-
-		//delayUs(2); /* wait for signal to settle */
-		col = PTC->PDIR & 0xF0; /* read all columns */
-
-		if (col != 0xF0) break; 
-	/* if one of the input is low, some key is pressed. */
-	}
-	
-	PTC->PDDR = 0; /* disable all rows */
-
-	if (row == 4)
-		return 0; /* if we get here, no key is pressed */
-
-	/* gets here when one of the rows has key pressed*/ 
-	/*check which column it is*/
-
-	if (col == 0xE0) 
-		return row * 4 + 1; /* key in column 0 */
-	if (col == 0xD0) 
-		return row * 4 + 2; /* key in column 1 */
-	if (col == 0xB0) 
-		return row * 4 + 3; /* key in column 2 */
-	if (col == 0x70) 
-		return row * 4 + 4; /* key in column 3 */
-	
-	return 0; /* just to be safe */
-}
-
-/* turn on or off the LEDs wrt to bit 2-0 of the value */
-void LED_set(int value){
-	/* use bit 0 of value to control red LED */
-
-	if (value & 1)
-		PTB->PCOR = 0x40000; /* turn on red LED */
-	else 
-		PTB->PSOR = 0x40000; /* turn off red LED */
-	/* use bit 1 of value to control green LED */
-	if (value & 2)
-		PTB->PCOR = 0x80000; /* turn on green LED */
-	else 
-		PTB->PSOR = 0x80000; /* turn off green LED */
-	/* use bit 2 of value to control blue LED */
-	if (value & 4) 
-		PTD->PCOR = 0x02; /* turn on blue LED */
-	else 
-		PTD->PSOR = 0x02; /* turn off blue LED */
-}
-
-void init_RED_LED (void){
-	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK; /* enable clock to Port B */
-	PORTB->PCR[18] = 0x100; /* make PTB18 pin as GPIO | RED*/
-	PTB->PDDR |= R_LED; /* make PTB18 as output pin */
-}
-
-void init_GREEN_LED (void){
-	SIM->SCGC5 |= 0x400; /* enable clock to Port B */
-	PORTB->PCR[19] = 0x100; /* make PTB19 pin as GPIO | GREEN*/
-	PTB->PDDR |= G_LED; /* make PTB19 as output pin */
-}
-
-void init_BLUE_LED (void){
-	SIM->SCGC5 |= 0x1000; 	// enable clock to Port D 
-	PORTD->PCR[1] = 0x100;// make PTD1 pin as GPIO | Blue
-	PTD->PDDR |= 0x02; 		// make PTD1 as output pin
-}
-
-void toggle_LED (uint32_t desired){
-	/* Turn off Green or Red LED */
-	FPTB->PTOR = desired; // make the pin output low		
-}
-
-void toggle_Blue_LED (void){
-	PTD->PTOR = B_LED; /* toggle blue LED */
-}
 
 void delayMs(int n) {
 	int i;
@@ -379,3 +228,54 @@ void delay1ms(void) {
 	SysTick->CTRL = 0; 														// Stop the timer (Enable = 0) 
 }
 
+/*
+int main (void){
+	hal_i2c0_init(I2C0_B);
+	
+	//char l = 'z';
+	//hal_dev_lcd_write_reg( 0x7, 0xF);
+	
+	hal_dev_lcd_write_reg( RS, 0x0);
+	hal_dev_lcd_write_reg( RW, 0x0);
+	hal_dev_lcd_write_reg( EN, 0x1);
+	
+	hal_dev_lcd_write_reg( 0x40, DCommd_4bits);
+	hal_dev_lcd_write_reg( 0x40, DCommd_IncrementCursor);
+	hal_dev_lcd_write_reg( 0x40, DCommd_CursorHome);
+	hal_dev_lcd_write_reg( 0x40, DCommd_CursorBlink);
+	hal_dev_lcd_write_reg( EN, 0x0);
+	
+	while (TRUE) {
+		hal_dev_lcd_write_reg( RS, 0x1);
+		hal_dev_lcd_write_reg( RW, 0x0);
+		hal_dev_lcd_write_reg( 0x40, 'a');
+		hal_dev_lcd_write_reg( EN, 0x1);
+	}
+	
+}
+static void pause(void)
+{
+    int n;
+    for(n=0; n<40; n++){}
+}
+
+void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
+    i2c_start(I2C0_B);
+
+    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
+	
+    i2c_wait(I2C0_B);
+    i2c_get_ack(I2C0_B);
+
+    i2c_write_byte(I2C0_B, addr);
+    i2c_wait(I2C0_B);
+    i2c_get_ack(I2C0_B);
+
+    i2c_write_byte(I2C0_B, data);
+    i2c_wait(I2C0_B);
+    i2c_get_ack(I2C0_B);
+
+    i2c_stop(I2C0_B);
+    pause();
+}
+*/

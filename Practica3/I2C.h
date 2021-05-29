@@ -25,7 +25,7 @@ void hal_i2c1_init(I2C_MemMapPtr p);
 void hal_i2c0_deinit(I2C_MemMapPtr p);
 void hal_i2c1_deinit(I2C_MemMapPtr p);
 #define I2C_READ  1
-#define I2C_WRITE 0}
+#define I2C_WRITE 0
 #define I2C0_B  I2C0_BASE_PTR
 
 

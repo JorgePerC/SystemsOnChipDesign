@@ -72,12 +72,15 @@ void LCD_init(void)	{
 	PORTD->PCR[1] = 0x100; /* make PTD1 pin as GPIO */
 	PORTD->PCR[2] = 0x100; /* make PTD2 pin as GPIO */
 	PORTD->PCR[3] = 0x100; /* make PTD3 pin as GPIO */
-	PORTD->PCR[4] = 0x100; /* make PTD4 pin as GPIO */
-	PORTD->PCR[5] = 0x100; /* make PTD5 pin as GPIO */
-	PORTD->PCR[6] = 0x100; /* make PTD6 pin as GPIO */
-	PORTD->PCR[7] = 0x100; /* make PTD7 pin as GPIO */
-
-	PTD->PDDR = 0xFF; /* make PTD7-0 as output pins */
+	
+	/*
+	PORTD->PCR[4] = 0x100; // make PTD4 pin as GPIO 
+	PORTD->PCR[5] = 0x100; // make PTD5 pin as GPIO 
+	PORTD->PCR[6] = 0x100; // make PTD6 pin as GPIO 
+	PORTD->PCR[7] = 0x100; // make PTD7 pin as GPIO 
+	*/
+	
+	PTD->PDDR = 0xF0; /* make PTD7-0 as output pins */
 	
 	SIM->SCGC5 |= 0x0200; /* enable clock to Port A */
 	
@@ -98,7 +101,9 @@ void LCD_init(void)	{
 	//LCD_command(0x30);	// LCD_command_noWait
 	
 	/* set 8-bit data, 2-line, 5x7 font */
-	LCD_command(0x38);
+	//LCD_command(0x38);
+	/* set 4-bit data, 2-line, 5x7 font */
+	LCD_command(0x28);
 	
 	/* move cursor right */
 	LCD_command(0x06); 
@@ -127,7 +132,7 @@ void LCD_command_noWait(unsigned char command){
 	PTA->PCOR = RS | RW; /* RS = 0, R/W = 0 */
 	PTD->PDOR = command;
 	PTA->PSOR = EN; /* pulse E */
-	delayMs(0);
+	delayMs(1);
 	PTA->PCOR = EN; 
 }
 
@@ -141,7 +146,7 @@ void LCD_data(unsigned char data){
 
 	PTA->PSOR = EN; /* pulse E */
 
-	delayMs(0);
+	delayMs(1);
 	PTA->PCOR = EN;
 	delayMs(1);
 }

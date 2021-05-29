@@ -20,9 +20,9 @@ int main (void) {
 	
 	while(1) {
 		FPTB->PCOR = 0x40000; // make the pin output low
-		delay(50000000);
+		delay(50000);
 		FPTB->PSOR = 0x40000; // make the pin output high
-		delay(50000000);
+		delay(50000);
 	}
 }
 

@@ -4,7 +4,7 @@ Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
 
 Section Cross References
 
-    basicblink.o(i.main) refers to basicblink.o(i.registerExplanation) for registerExplanation
+    basicblink.o(i.main) refers to basicblink.o(i.delay) for delay
     startup_mkl25z4.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_mkl25z4.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_mkl25z4.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -133,14 +133,14 @@ Removing Unused input sections from the image.
 
     Removing basicblink.o(.rev16_text), (4 bytes).
     Removing basicblink.o(.revsh_text), (4 bytes).
-    Removing basicblink.o(i.delay), (12 bytes).
+    Removing basicblink.o(i.registerExplanation), (64 bytes).
     Removing system_mkl25z4.o(.rev16_text), (4 bytes).
     Removing system_mkl25z4.o(.revsh_text), (4 bytes).
     Removing system_mkl25z4.o(i.SystemCoreClockUpdate), (400 bytes).
     Removing system_mkl25z4.o(.data), (4 bytes).
     Removing system_mkl25z4.o(i.__ARM_common_switch8), (28 bytes).
 
-8 unused section(s) (total 460 bytes) removed from the image.
+8 unused section(s) (total 512 bytes) removed from the image.
 
 ==============================================================================
 
@@ -265,8 +265,8 @@ Image Symbol Table
     .text                                    0x000001f0   Section        2  use_no_semi.o(.text)
     .text                                    0x000001f2   Section        0  indicate_semi.o(.text)
     i.SystemInit                             0x000001f4   Section        0  system_mkl25z4.o(i.SystemInit)
-    i.main                                   0x00000200   Section        0  basicblink.o(i.main)
-    i.registerExplanation                    0x00000204   Section        0  basicblink.o(i.registerExplanation)
+    i.delay                                  0x00000200   Section        0  basicblink.o(i.delay)
+    i.main                                   0x0000020c   Section        0  basicblink.o(i.main)
     .ARM.__at_0x400                          0x00000400   Section       16  startup_mkl25z4.o(.ARM.__at_0x400)
     .bss                                     0x1ffffc00   Section       96  libspace.o(.bss)
     HEAP                                     0x1ffffc60   Section        0  startup_mkl25z4.o(HEAP)
@@ -414,10 +414,10 @@ Image Symbol Table
     __use_no_semihosting_swi                 0x000001f1   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x000001f3   Thumb Code     0  indicate_semi.o(.text)
     SystemInit                               0x000001f5   Thumb Code     8  system_mkl25z4.o(i.SystemInit)
-    main                                     0x00000201   Thumb Code     4  basicblink.o(i.main)
-    registerExplanation                      0x00000205   Thumb Code    52  basicblink.o(i.registerExplanation)
-    Region$$Table$$Base                      0x00000244   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000254   Number         0  anon$$obj.o(Region$$Table)
+    delay                                    0x00000201   Thumb Code    12  basicblink.o(i.delay)
+    main                                     0x0000020d   Thumb Code    60  basicblink.o(i.main)
+    Region$$Table$$Base                      0x00000258   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000268   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x1ffffc00   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x1ffffc60   Data           0  libspace.o(.bss)
 
@@ -492,10 +492,10 @@ Memory Map of the image
     0x000001f2   0x000001f2   0x00000000   Code   RO          227    .text               c_p.l(indicate_semi.o)
     0x000001f2   0x000001f2   0x00000002   PAD
     0x000001f4   0x000001f4   0x0000000c   Code   RO           71    i.SystemInit        system_mkl25z4.o
-    0x00000200   0x00000200   0x00000004   Code   RO            4    i.main              basicblink.o
-    0x00000204   0x00000204   0x00000040   Code   RO            5    i.registerExplanation  basicblink.o
-    0x00000244   0x00000244   0x00000010   Data   RO          279    Region$$Table       anon$$obj.o
-    0x00000254   0x00000254   0x000001ac   PAD
+    0x00000200   0x00000200   0x0000000c   Code   RO            3    i.delay             basicblink.o
+    0x0000020c   0x0000020c   0x0000004c   Code   RO            4    i.main              basicblink.o
+    0x00000258   0x00000258   0x00000010   Data   RO          279    Region$$Table       anon$$obj.o
+    0x00000268   0x00000268   0x00000198   PAD
     0x00000400   0x00000400   0x00000010   Code   RO           61    .ARM.__at_0x400     startup_mkl25z4.o
 
 
@@ -520,14 +520,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        68         12          0          0          0       2357   basicblink.o
-        80         44        192          0        256        944   startup_mkl25z4.o
-        12          4          0          0          0        473   system_mkl25z4.o
+        88         16          0          0          0       2335   basicblink.o
+        80         44        192          0        256        880   startup_mkl25z4.o
+        12          4          0          0          0        445   system_mkl25z4.o
 
     ----------------------------------------------------------------------
-       160         60        636          0        256       3774   Object Totals
+       180         64        616          0        256       3660   Object Totals
          0          0         16          0          0          0   (incl. Generated)
-         0          0        428          0          0          0   (incl. Padding)
+         0          0        408          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -573,9 +573,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       404         76        636          0        352       4074   Grand Totals
-       404         76        636          0        352       4074   ELF Image Totals
-       404         76        636          0          0          0   ROM Totals
+       424         80        616          0        352       4004   Grand Totals
+       424         80        616          0        352       4004   ELF Image Totals
+       424         80        616          0          0          0   ROM Totals
 
 ==============================================================================
 

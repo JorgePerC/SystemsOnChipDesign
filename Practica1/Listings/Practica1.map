@@ -295,14 +295,14 @@ Image Symbol Table
     __arm_cp.4_0                             0x00000224   Number         4  part1.o(.text.LCD_data)
     __arm_cp.4_1                             0x00000228   Number         4  part1.o(.text.LCD_data)
     [Anonymous Symbol]                       0x0000022c   Section        0  part1.o(.text.LCD_init)
-    __arm_cp.1_0                             0x00000288   Number         4  part1.o(.text.LCD_init)
-    __arm_cp.1_1                             0x0000028c   Number         4  part1.o(.text.LCD_init)
-    __arm_cp.1_2                             0x00000290   Number         4  part1.o(.text.LCD_init)
-    __arm_cp.1_3                             0x00000294   Number         4  part1.o(.text.LCD_init)
-    __arm_cp.1_4                             0x00000298   Number         4  part1.o(.text.LCD_init)
-    [Anonymous Symbol]                       0x0000029c   Section        0  system_mkl25z4.o(.text.SystemInit)
-    __arm_cp.0_0                             0x000002a4   Number         4  system_mkl25z4.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x000002a8   Section        0  part1.o(.text.main)
+    __arm_cp.1_0                             0x00000280   Number         4  part1.o(.text.LCD_init)
+    __arm_cp.1_1                             0x00000284   Number         4  part1.o(.text.LCD_init)
+    __arm_cp.1_2                             0x00000288   Number         4  part1.o(.text.LCD_init)
+    __arm_cp.1_3                             0x0000028c   Number         4  part1.o(.text.LCD_init)
+    __arm_cp.1_4                             0x00000290   Number         4  part1.o(.text.LCD_init)
+    [Anonymous Symbol]                       0x00000294   Section        0  system_mkl25z4.o(.text.SystemInit)
+    __arm_cp.0_0                             0x0000029c   Number         4  system_mkl25z4.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x000002a0   Section        0  part1.o(.text.main)
     .ARM.__at_0x400                          0x00000400   Section       16  startup_mkl25z4.o(.ARM.__at_0x400)
     .bss                                     0x1ffff000   Section       96  libspace.o(.bss)
     Heap_Mem                                 0x1ffff060   Data           0  startup_mkl25z4.o(HEAP)
@@ -448,11 +448,11 @@ Image Symbol Table
     __semihosting_library_function           0x000001f3   Thumb Code     0  indicate_semi.o(.text)
     LCD_command                              0x000001f5   Thumb Code    20  part1.o(.text.LCD_command)
     LCD_data                                 0x0000020d   Thumb Code    24  part1.o(.text.LCD_data)
-    LCD_init                                 0x0000022d   Thumb Code    92  part1.o(.text.LCD_init)
-    SystemInit                               0x0000029d   Thumb Code     8  system_mkl25z4.o(.text.SystemInit)
-    main                                     0x000002a9   Thumb Code    94  part1.o(.text.main)
-    Region$$Table$$Base                      0x00000308   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000318   Number         0  anon$$obj.o(Region$$Table)
+    LCD_init                                 0x0000022d   Thumb Code    84  part1.o(.text.LCD_init)
+    SystemInit                               0x00000295   Thumb Code     8  system_mkl25z4.o(.text.SystemInit)
+    main                                     0x000002a1   Thumb Code    94  part1.o(.text.main)
+    Region$$Table$$Base                      0x00000300   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000310   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x1ffff000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x1ffff060   Data           0  libspace.o(.bss)
 
@@ -527,12 +527,12 @@ Memory Map of the image
     0x000001f2   0x000001f2   0x00000002   PAD
     0x000001f4   0x000001f4   0x00000018   Code   RO            6    .text.LCD_command   part1.o
     0x0000020c   0x0000020c   0x00000020   Code   RO           10    .text.LCD_data      part1.o
-    0x0000022c   0x0000022c   0x00000070   Code   RO            4    .text.LCD_init      part1.o
-    0x0000029c   0x0000029c   0x0000000c   Code   RO           37    .text.SystemInit    system_mkl25z4.o
-    0x000002a8   0x000002a8   0x0000005e   Code   RO            2    .text.main          part1.o
-    0x00000306   0x00000306   0x00000002   PAD
-    0x00000308   0x00000308   0x00000010   Data   RO          235    Region$$Table       anon$$obj.o
-    0x00000318   0x00000318   0x000000e8   PAD
+    0x0000022c   0x0000022c   0x00000068   Code   RO            4    .text.LCD_init      part1.o
+    0x00000294   0x00000294   0x0000000c   Code   RO           37    .text.SystemInit    system_mkl25z4.o
+    0x000002a0   0x000002a0   0x0000005e   Code   RO            2    .text.main          part1.o
+    0x000002fe   0x000002fe   0x00000002   PAD
+    0x00000300   0x00000300   0x00000010   Data   RO          235    Region$$Table       anon$$obj.o
+    0x00000310   0x00000310   0x000000f0   PAD
     0x00000400   0x00000400   0x00000010   Code   RO           27    .ARM.__at_0x400     startup_mkl25z4.o
 
 
@@ -557,14 +557,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       262         32          0          0          0       2736   part1.o
-        80         44        192          0        256        944   startup_mkl25z4.o
-        12          4          0          0          0       2559   system_mkl25z4.o
+       254         32          0          0          0       2703   part1.o
+        80         44        192          0        256        884   startup_mkl25z4.o
+        12          4          0          0          0       2528   system_mkl25z4.o
 
     ----------------------------------------------------------------------
-       356         80        440          0        256       6239   Object Totals
+       348         80        448          0        256       6115   Object Totals
          0          0         16          0          0          0   (incl. Generated)
-         2          0        232          0          0          0   (incl. Padding)
+         2          0        240          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -610,9 +610,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       600         96        440          0        352       6611   Grand Totals
-       600         96        440          0        352       6611   ELF Image Totals
-       600         96        440          0          0          0   ROM Totals
+       592         96        448          0        352       6487   Grand Totals
+       592         96        448          0        352       6487   ELF Image Totals
+       592         96        448          0          0          0   ROM Totals
 
 ==============================================================================
 

@@ -610,10 +610,10 @@ Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
 work --depend=.\objects\startup_mkl25z4.d -o.\objects\startup_mkl25z4.o -I.\RTE
 \Device\MKL25Z32xxx4 -I.\RTE\_Target_1 -IC:\Users\jorge\AppData\Local\Arm\Packs
 \ARM\CMSIS\5.7.0\CMSIS\Core\Include -IC:\Users\jorge\AppData\Local\Arm\Packs\Ke
-il\Kinetis_KLxx_DFP\1.15.0\Device\Include --predefine="__UVISION_VERSION SETA 5
-34" --predefine="_RTE_ SETA 1" --predefine="MKL25Z32xxx4 SETA 1" --predefine="_
-RTE_ SETA 1" --list=.\listings\startup_mkl25z4.lst RTE\Device\MKL25Z32xxx4\star
-tup_MKL25Z4.s
+il\Kinetis_KLxx_DFP\1.15.0\Device\Include --predefine="__EVAL SETA 1" --predefi
+ne="__UVISION_VERSION SETA 534" --predefine="_RTE_ SETA 1" --predefine="MKL25Z3
+2xxx4 SETA 1" --predefine="_RTE_ SETA 1" --list=.\listings\startup_mkl25z4.lst 
+RTE\Device\MKL25Z32xxx4\startup_MKL25Z4.s
 
 
 
@@ -1372,4 +1372,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 3 symbols
-416 symbols in table
+417 symbols in table

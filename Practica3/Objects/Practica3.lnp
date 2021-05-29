@@ -2,6 +2,8 @@
 ".\objects\main.o"
 ".\objects\lcd_display.o"
 ".\objects\i2c.o"
+".\objects\keypad.o"
+".\objects\leds.o"
 ".\objects\startup_mkl25z4.o"
 ".\objects\system_mkl25z4.o"
 --strict --scatter ".\Objects\Practica3.sct"

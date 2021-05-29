@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LEDBlink.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LEDBlink.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Apr 22 08:43:41 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri May 28 22:59:50 2021
 <BR><P>
 <H3>Maximum Stack Usage =          8 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -390,14 +390,14 @@ Global Symbols
 <P><STRONG><a name="[2b]"></a>SystemInit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, system_mkl25z4.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mkl25z4.o(.text)
 </UL>
-<P><STRONG><a name="[39]"></a>main</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, basicblink.o(i.main))
-<BR><BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerExplanation
-</UL>
-<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+<P><STRONG><a name="[42]"></a>delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, basicblink.o(i.delay))
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[42]"></a>registerExplanation</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, basicblink.o(i.registerExplanation))
-<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[39]"></a>main</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, basicblink.o(i.main))
+<BR><BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 <P>
 <H3>
