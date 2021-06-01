@@ -88,8 +88,6 @@ void LCD_sendWord(char *word){
 }
 
 void waitUntilFinished(void){
-
-	// TODO: CHECK
 	/* Wait until LCD is not busy */
 	do {
 		/* BF can be read, when RS = LOW & R/W = HIGH on DB7 port */

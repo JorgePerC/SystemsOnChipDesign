@@ -32,55 +32,8 @@ int mainKeypad(void);
 // MAIN----------
 
 int main (void){
-	LCD_init(DCommd_8bits);
-	LCD_command(0xF);
-	
-	LCD_command(1); 	// clear display
-		delayMs(500);
-		LCD_command(0x80); 	// set cursor at first line
-		
-		LCD_data('P'); 		// write the word
-		LCD_data('B');
-		// write the word
-		char message[] = "PRESS BUTTON";
-		LCD_sendWord(message);
-
-}
-
-
-int mainLCD(void){
-	LCD_init(DCommd_8bits);
-	LCD_command(0xF);
-	
-	for(;;){
-		LCD_command(1); /* clear display */
-		delayMs(500);
-		LCD_command(0x80); /* set cursor at first line */
-		LCD_data('H'); /* write the word */
-		LCD_data('e');
-		LCD_data('l');
-		LCD_data('l');
-		LCD_data('o');
-		LCD_command(0xC0); /* set cursor at second line */
-		LCD_data('W'); /* write the word */
-		LCD_data('o');
-		LCD_data('r');
-		LCD_data('l');
-		LCD_data('d');
-		delayMs(500);
-	} 
-}
-
-
-int mainKeypad(void){
-	unsigned int key;
-
-	keypad_init();
-	//LED_init();
-
-	while(1){
-		key = keypad_getkey();
-	}
+	act1();
+	//act2();
 }
 
 void act1(void){
@@ -127,8 +80,6 @@ R: 1       B: 2        G: 3
 */
 	LCD_command(0x80); 	// set cursor at first line
 	
-	LCD_data('P'); 		// write the word
-	LCD_data('B');
 	// write the word
 	char message[] = "PRESS BUTTON";
 	LCD_sendWord(message);
@@ -141,6 +92,7 @@ R: 1       B: 2        G: 3
 }
 
 void displayFeedback(unsigned int key_pressed ){
+// Show menu and turn on corresponding LEDs
 /*
 -------------------
   RED/BLUE/GREEN
@@ -204,16 +156,21 @@ Once the timer has elapsed, you can use a buzzer (if you have it) or a led to ma
 	LCD_command(DCommd_CursorFirstLine);
 	char word [] = "Hello there";
 	while (TRUE){
+		// Display Hello there
 		LCD_sendWord(word);
 		delayMs(5000);
+		
 		fill_numbers(select_Numbers);
+		
 		show_countdown(select_Numbers);
+		
 		LCD_command(DCommd_ClearDisplay);
 	}
 	
 }
 
 void fill_numbers (unsigned int * d){
+	//Method to receive as input the time to count down from.
 	// This method does not take into account if the first key pressed is #
 	// It also won't show the selection
 	unsigned int keyP;
@@ -229,6 +186,8 @@ void fill_numbers (unsigned int * d){
 }
 
 void show_countdown(unsigned int * d){
+	// Method to countdown and shown how muc time remaining there is.
+	
 	unsigned int i;
 	char word[10]; // make sure you allocate enough space to append the other string
 	char w[] = "Counting";
@@ -251,6 +210,7 @@ void show_countdown(unsigned int * d){
 }
 
 unsigned int convert_array_2_num(unsigned int * d){
+	//Converts the input from the keyboard into a number from 0-99
 	unsigned int i;
 	unsigned int res = 0;
 	for (i = 0; i < sizeof(d)/sizeof(int); i++){
@@ -287,54 +247,3 @@ void delay1ms(void) {
 	SysTick->CTRL = 0; 														// Stop the timer (Enable = 0) 
 }
 
-/*
-int main (void){
-	hal_i2c0_init(I2C0_B);
-	
-	//char l = 'z';
-	//hal_dev_lcd_write_reg( 0x7, 0xF);
-	
-	hal_dev_lcd_write_reg( RS, 0x0);
-	hal_dev_lcd_write_reg( RW, 0x0);
-	hal_dev_lcd_write_reg( EN, 0x1);
-	
-	hal_dev_lcd_write_reg( 0x40, DCommd_4bits);
-	hal_dev_lcd_write_reg( 0x40, DCommd_IncrementCursor);
-	hal_dev_lcd_write_reg( 0x40, DCommd_CursorHome);
-	hal_dev_lcd_write_reg( 0x40, DCommd_CursorBlink);
-	hal_dev_lcd_write_reg( EN, 0x0);
-	
-	while (TRUE) {
-		hal_dev_lcd_write_reg( RS, 0x1);
-		hal_dev_lcd_write_reg( RW, 0x0);
-		hal_dev_lcd_write_reg( 0x40, 'a');
-		hal_dev_lcd_write_reg( EN, 0x1);
-	}
-	
-}
-static void pause(void)
-{
-    int n;
-    for(n=0; n<40; n++){}
-}
-
-void hal_dev_lcd_write_reg(uint8_t addr, uint8_t data){
-    i2c_start(I2C0_B);
-
-    i2c_write_byte(I2C0_B, LCD_DISPLAY_I2C_ADDRESS | I2C_WRITE);
-	
-    i2c_wait(I2C0_B);
-    i2c_get_ack(I2C0_B);
-
-    i2c_write_byte(I2C0_B, addr);
-    i2c_wait(I2C0_B);
-    i2c_get_ack(I2C0_B);
-
-    i2c_write_byte(I2C0_B, data);
-    i2c_wait(I2C0_B);
-    i2c_get_ack(I2C0_B);
-
-    i2c_stop(I2C0_B);
-    pause();
-}
-*/
