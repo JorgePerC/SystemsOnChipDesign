@@ -52,6 +52,23 @@ A single timer can have more than 1 CCR. If configured like this, the'll have th
 ## Connections
 ![Connections](pract6_motor_bb.png "Connections")
 
+Red cables represent 5V
+Black cables reversent earth
+### LCD
+RS: PTA RW: PT4 EN: PTA5
+D7 -> PTD7
+D6 -> PTD6
+D5 -> PTD5
+D4 -> PTD4
+
+### Keypad
+PTC 0 -> Row1
+...
+PTC 7 -> Col8
+
+### Motor
+Positive to PTB0
+
 ## Flow diagram for part 3
 
 ![Diagrama de flujo](DF_act6.png "Flowchart")
