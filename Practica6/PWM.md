@@ -50,7 +50,7 @@ A single timer can have more than 1 CCR. If configured like this, the'll have th
 
 
 ## Connections
-
+![Connections](pract6_motor_bb "Connections")
 
 ## Flow diagram for part 3
 
