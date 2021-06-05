@@ -49,6 +49,11 @@ A single timer can have more than 1 CCR. If configured like this, the'll have th
 
 
 
+## Connections
 
+
+## Flow diagram for part 3
+
+![Diagrama de flujo](DF_act6.png "Flowchart")
 
 

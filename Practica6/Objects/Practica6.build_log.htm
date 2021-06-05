@@ -22,12 +22,49 @@ Dialog DLL:      TARMCM1.DLL V1.14.3.0
  
 <h2>Project:</h2>
 C:\Users\jorge\Documents\SystemsOnChipDesign\Practica6\Practica6.uvprojx
-Project File Date:  05/26/2021
+Project File Date:  05/29/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-".\Objects\Practica6.axf" - 0 Error(s), 0 Warning(s).
+main.c(8): warning: In file included from...
+./LEDs.h(37): warning: no newline at end of file [-Wnewline-eof]
+void turn_off_all_LEDs(void);
+                             ^
+main.c(66): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        PTD->PDDR &= ~0x80; /* make PTD7 as input pin */
+                  ~~ ^~~~~
+main.c(69): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                PTD->PDOR &= ~0x0F; /* open all switches */
+                          ~~ ^~~~~
+main.c(77): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        PTD->PDOR &= ~0x0F; /* open all switches */
+                  ~~ ^~~~~
+main.c(154): warning: function 'showControls' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+void showControls(void){
+                       ^
+main.c(199): warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+        set_TPM_CnV(TPM1_BASE_PTR, 4, dutyVal);
+        ~~~~~~~~~~~                   ^~~~~~~
+6 warnings generated.
+compiling main.c...
+Keypad.c(70): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                return row * 4 + 1; /* key in column 0 */
+                ~~~~~~ ~~~~~~~~^~~
+Keypad.c(72): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                return row * 4 + 2; /* key in column 1 */
+                ~~~~~~ ~~~~~~~~^~~
+Keypad.c(74): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                return row * 4 + 3; /* key in column 2 */
+                ~~~~~~ ~~~~~~~~^~~
+Keypad.c(76): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                return row * 4 + 4; /* key in column 3 */
+                ~~~~~~ ~~~~~~~~^~~
+4 warnings generated.
+compiling Keypad.c...
+linking...
+Program Size: Code=572 RO-data=468 RW-data=0 ZI-data=352  
+".\Objects\Practica6.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -64,10 +101,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\ARM\startup_MKL25Z4.s
+      Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\system_MKL25Z4.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
